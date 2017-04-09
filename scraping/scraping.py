@@ -17,9 +17,9 @@ def html_to_dataframe(url_website, titles_xpath, url_xpath, prices_xpath):
     url_list = [u for u in url]
     price_list = [p.text_content() for p in prices]
 
-    results = {'titles': title_list, 'prices':  price_list, 'url': url_list}
+    results = {'title': title_list, 'price':  price_list, 'url': url_list}
     df = pd.DataFrame(results)
-    return df
+    return df.to_json(force_ascii=False, orient='records').replace('\\', '')
 
 def save(df):
     engine = create_engine('sqlite:///rakuten.db')
@@ -34,4 +34,4 @@ def main():
     save(df)
 
 if __name__ == '__main__':
-     main()
+    main()
