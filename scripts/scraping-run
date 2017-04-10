@@ -6,7 +6,7 @@ from os.path import split
 import argparse
 
 # Import from scraping
-import scraping
+import scraping.bdd as bdd
 import scraping.app as app
 
 if __name__ == '__main__':
