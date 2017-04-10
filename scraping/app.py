@@ -18,10 +18,16 @@ class UnicodeApi(Api):
 app = Flask(__name__)
 api = UnicodeApi(app)
 
+# First selection level
 class GameListAPI(Resource):
     def get(self):
         return jsonify(bdd.games)
 
+class SoftwareListAPI(Resource):
+    def get(self):
+        return jsonify(bdd.softwares)
+
+# Second selection level
 class Nintendo3DSListAPI(Resource):
     def get(self):
         return jsonify(bdd.nintendo3DS)
@@ -30,6 +36,7 @@ class Playstation4ListAPI(Resource):
     def get(self):
         return jsonify(bdd.playstation4)
 
+# Selection the web page to scrap
 class Playstation4API(Resource):
     def get(self, data_id):
         result = get_game(bdd=bdd.playstation4, data_id=data_id)
@@ -41,6 +48,7 @@ class Nintendo3DSAPI(Resource):
         return result
 
 api.add_resource(GameListAPI, '/rakutenscraping/api/v1.0/games')
+api.add_resource(SoftwareListAPI, '/rakutenscraping/api/v1.0/software')
 api.add_resource(Nintendo3DSListAPI, '/rakutenscraping/api/v1.0/games/3DS')
 api.add_resource(Nintendo3DSAPI, '/rakutenscraping/api/v1.0/games/3DS/<string:data_id>')
 api.add_resource(Playstation4ListAPI, '/rakutenscraping/api/v1.0/games/PS4')

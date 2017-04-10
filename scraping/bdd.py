@@ -13,11 +13,11 @@ games = [
     }
 ]
 
-software = [
+softwares = [
     {
-        'id': 'software',
-        'title': 'software, pc and component',
-        'description': 'A lot of product in relation with software and pc from rakuten.co.jp',
+        'id': 'keyboardMouse',
+        'title': 'Keyboard and mouse',
+        'description': 'A lot of keybord and mouse from rakuten.co.jp',
     }
 ]
 
