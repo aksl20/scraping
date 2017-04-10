@@ -51,9 +51,15 @@ class Nintendo3DSAPI(Resource):
         result = get_game(bdd=bdd.nintendo3DS, data_id=data_id)
         return result
 
+class KeyboardMouseAPI(Resource):
+    def get(self, data_id):
+        result = get_game(bdd=bdd.keyboardMouse, data_id=data_id)
+        return result
+
 api.add_resource(SoftwareListAPI, '/rakutenscraping/api/v1.0/software')
 
 api.add_resource(KeyboardMouseListAPI, '/rakutenscraping/api/v1.0/software/keyboardmouse')
+api.add_resource(KeyboardMouseAPI, '/rakutenscraping/api/v1.0/software/keyboardmouse/<string:data_id>')
 
 api.add_resource(GameListAPI, '/rakutenscraping/api/v1.0/games')
 
