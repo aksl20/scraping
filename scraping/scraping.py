@@ -4,16 +4,16 @@ import pandas as pd
 import requests
 import bdd
 
-def get_game(bdd, task_id):
+def get_game(bdd, data_id):
     """
     Function to return game product sold on rakuten
     """
-    task = [task for task in bdd if task['id'] == task_id]
-    page = requests.get(task[0]['url']) 
+    data = [data for data in bdd if data['id'] == data_id]
+    page = requests.get(data[0]['url']) 
     html = lxml.html.fromstring(page.content)
-    titles = html.xpath(task[0]['titles_xpath'])
-    url = html.xpath(task[0]['url_xpath'])
-    prices = html.xpath(task[0]['prices_xpath'])
+    titles = html.xpath("//div[@class='rbcomp__item-list__item__details__lead']/h3/a/span")
+    url = html.xpath("//div[@class='rbcomp__item-list__item__details__lead']/h3/a/@href")
+    prices = html.xpath("//div[@class='rbcomp__item-list__item__details__info__main']/p[@class='rbcomp__price']/span/em")
 
     title_list = [str.strip(tt.text_content()) for tt in titles]
     url_list = [u for u in url]

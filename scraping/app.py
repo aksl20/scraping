@@ -31,20 +31,20 @@ class Playstation4ListAPI(Resource):
         return jsonify(bdd.playstation4)
 
 class Playstation4API(Resource):
-    def get(self, task_id):
-        result = get_game(bdd=bdd.playstation4, task_id=task_id)
+    def get(self, data_id):
+        result = get_game(bdd=bdd.playstation4, data_id=data_id)
         return result
 
 class Nintendo3DSAPI(Resource):
-    def get(self, task_id):
-        result = get_game(bdd=bdd.nintendo3DS, task_id=task_id)
+    def get(self, data_id):
+        result = get_game(bdd=bdd.nintendo3DS, data_id=data_id)
         return result
 
 api.add_resource(GameListAPI, '/rakutenscraping/api/v1.0/games')
 api.add_resource(Nintendo3DSListAPI, '/rakutenscraping/api/v1.0/games/3DS')
-api.add_resource(Nintendo3DSAPI, '/rakutenscraping/api/v1.0/games/3DS/<string:task_id>')
+api.add_resource(Nintendo3DSAPI, '/rakutenscraping/api/v1.0/games/3DS/<string:data_id>')
 api.add_resource(Playstation4ListAPI, '/rakutenscraping/api/v1.0/games/PS4')
-api.add_resource(Playstation4API, '/rakutenscraping/api/v1.0/games/PS4/<string:task_id>')
+api.add_resource(Playstation4API, '/rakutenscraping/api/v1.0/games/PS4/<string:data_id>')
 
 
 if __name__ == '__main__':
