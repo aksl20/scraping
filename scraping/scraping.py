@@ -4,6 +4,9 @@ import pandas as pd
 import requests
 
 def get_game_data(url_website, titles_xpath, url_xpath, prices_xpath):
+    """
+    Function to return game product sold on rakuten
+    """
     page = requests.get(url_website) 
     html = lxml.html.fromstring(page.content)
     titles = html.xpath(titles_xpath)
@@ -19,6 +22,9 @@ def get_game_data(url_website, titles_xpath, url_xpath, prices_xpath):
     return df.to_json(force_ascii=False, orient='records').replace('\\', '')
 
 def save(df):
+    """
+    Function to save a dataframe in data folder (.csv and utf-8 encoding
+    """
     df.to_csv('data/mon_csv.csv', encoding="utf-8")
 
 def main():
