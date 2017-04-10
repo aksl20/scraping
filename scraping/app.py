@@ -2,7 +2,7 @@
 
 from flask import Flask, request, jsonify
 from flask_restful import Resource, Api, output_json
-from scraping import html_to_dataframe
+from scraping import get_game_data
 from json import dumps
 
 class UnicodeApi(Api):
@@ -14,9 +14,10 @@ class UnicodeApi(Api):
         self.representations = {
             'application/json; charset=utf-8': output_json
         }
- 
+
 app = Flask(__name__)
 api = UnicodeApi(app)
+
 
 games = [
     {
@@ -30,9 +31,17 @@ games = [
 nintendo3DS = [
     {
         'id': u'device',
-        'title': u'3DS device',
         'description': u'You want to by a 3DS, this is the right place', 
         'url': 'http://books.rakuten.co.jp/search/dt/g006508001/',
+        'titles_xpath': "//div[@class='rbcomp__item-list__item__details__lead']/h3/a/span",
+        'url_xpath': "//div[@class='rbcomp__item-list__item__details__lead']/h3/a/@href",
+        'prices_xpath': "//div[@class='rbcomp__item-list__item__details__info__main']/p[@class='rbcomp__price']/span/em",
+        'done': False
+    },
+    {
+        'id': u'component',
+        'description': u'Here you can find additional component for nintendo 3DS',
+        'url': 'http://books.rakuten.co.jp/search/dt?mt=0&o=0&cy=0&h=30&g=006508002&e=0&v=2&spv=2&s=1&sv=30',
         'titles_xpath': "//div[@class='rbcomp__item-list__item__details__lead']/h3/a/span",
         'url_xpath': "//div[@class='rbcomp__item-list__item__details__lead']/h3/a/@href",
         'prices_xpath': "//div[@class='rbcomp__item-list__item__details__info__main']/p[@class='rbcomp__price']/span/em",
@@ -51,10 +60,8 @@ class Nintendo3DSListAPI(Resource):
 class Nintendo3DSAPI(Resource):
     def get(self, task_id):
         task = [task for task in nintendo3DS if task['id'] == task_id]
-        result = html_to_dataframe(url_website='http://books.rakuten.co.jp/search/dt?mt=0&o=0&cy=0&h=30&g=006502003001&e=0&v=2&spv=2&s=1&sv=30',\
-                           titles_xpath="//div[@class='rbcomp__item-list__item__details__lead']/h3/a/span",\
-                           url_xpath="//div[@class='rbcomp__item-list__item__details__lead']/h3/a/@href",\
-                           prices_xpath="//div[@class='rbcomp__item-list__item__details__info__main']/p[@class='rbcomp__price']/span/em")
+        result = get_game_data(url_website=task[0]['url'], titles_xpath=task[0]['titles_xpath'],\
+                              url_xpath=task[0]['url_xpath'], prices_xpath=task[0]['prices_xpath'])
         return result
 
 api.add_resource(GameListAPI, '/rakutenscraping/api/v1.0/games', endpoint = 'games')
@@ -62,4 +69,4 @@ api.add_resource(Nintendo3DSListAPI, '/rakutenscraping/api/v1.0/games/3DS', endp
 api.add_resource(Nintendo3DSAPI, '/rakutenscraping/api/v1.0/games/3DS/<string:task_id>')
 
 if __name__ == '__main__':
-    app.run()
+        app.run()
