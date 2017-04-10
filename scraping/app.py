@@ -36,6 +36,10 @@ class Playstation4ListAPI(Resource):
     def get(self):
         return jsonify(bdd.playstation4)
 
+class KeyboardMouseListAPI(Resource):
+    def get(self):
+        return jsonify(bdd.keyboardMouse)
+
 # Selection the web page to scrap
 class Playstation4API(Resource):
     def get(self, data_id):
@@ -47,8 +51,12 @@ class Nintendo3DSAPI(Resource):
         result = get_game(bdd=bdd.nintendo3DS, data_id=data_id)
         return result
 
-api.add_resource(GameListAPI, '/rakutenscraping/api/v1.0/games')
 api.add_resource(SoftwareListAPI, '/rakutenscraping/api/v1.0/software')
+
+api.add_resource(KeyboardMouseListAPI, '/rakutenscraping/api/v1.0/software/keyboardmouse')
+
+api.add_resource(GameListAPI, '/rakutenscraping/api/v1.0/games')
+
 api.add_resource(Nintendo3DSListAPI, '/rakutenscraping/api/v1.0/games/3DS')
 api.add_resource(Nintendo3DSAPI, '/rakutenscraping/api/v1.0/games/3DS/<string:data_id>')
 api.add_resource(Playstation4ListAPI, '/rakutenscraping/api/v1.0/games/PS4')
