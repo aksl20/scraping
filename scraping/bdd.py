@@ -2,17 +2,35 @@
 
 games = [
     {
-        'id': u'3DS',
-        'title': u'Nintendo 3DS',
-        'description': u'A lot of product in relation with Nitendo 3DS from rakuten.co.jp',
+        'id': '3DS',
+        'title': 'Nintendo 3DS',
+        'description': 'A lot of product in relation with Nitendo 3DS from rakuten.co.jp',
         'done': False
+    },
+    {
+        'id': 'PS4',
+        'title': 'Playstation 4',
+        'description': 'A lot of product in relation with Playstation 4 from rakuten.co.jp',
+        'done': False
+    }
+]
+
+playstation4 = [
+    {
+       'id': 'device',
+        'description': 'You want to by a PS4, this is the right place',
+        'url': 'http://books.rakuten.co.jp/search/dt/g006513001/',
+        'titles_xpath': "//div[@class='rbcomp__item-list__item__details__lead']/h3/a/span",
+        'url_xpath': "//div[@class='rbcomp__item-list__item__details__lead']/h3/a/@href",
+        'prices_xpath': "//div[@class='rbcomp__item-list__item__details__info__main']/p[@class='rbcomp__price']/span/em",
+        'done': False 
     }
 ]
 
 nintendo3DS = [
     {
-        'id': u'device',
-        'description': u'You want to by a 3DS, this is the right place',
+        'id': 'device',
+        'description': 'You want to by a 3DS, this is the right place',
         'url': 'http://books.rakuten.co.jp/search/dt/g006508001/',
         'titles_xpath': "//div[@class='rbcomp__item-list__item__details__lead']/h3/a/span",
         'url_xpath': "//div[@class='rbcomp__item-list__item__details__lead']/h3/a/@href",

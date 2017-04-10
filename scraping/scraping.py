@@ -2,16 +2,18 @@
 import lxml.html
 import pandas as pd
 import requests
+import bdd
 
-def get_game_data(url_website, titles_xpath, url_xpath, prices_xpath):
+def get_game(bdd, task_id):
     """
     Function to return game product sold on rakuten
     """
-    page = requests.get(url_website) 
+    task = [task for task in bdd if task['id'] == task_id]
+    page = requests.get(task[0]['url']) 
     html = lxml.html.fromstring(page.content)
-    titles = html.xpath(titles_xpath)
-    url = html.xpath(url_xpath)
-    prices = html.xpath(prices_xpath)
+    titles = html.xpath(task[0]['titles_xpath'])
+    url = html.xpath(task[0]['url_xpath'])
+    prices = html.xpath(task[0]['prices_xpath'])
 
     title_list = [str.strip(tt.text_content()) for tt in titles]
     url_list = [u for u in url]
@@ -28,11 +30,7 @@ def save(df):
     df.to_csv('data/mon_csv.csv', encoding="utf-8")
 
 def main():
-    df = get_game_data(url_website='http://books.rakuten.co.jp/search/dt?mt=0&o=0&cy=0&h=30&g=006502003001&e=0&v=2&spv=2&s=1&sv=30',\
-                           titles_xpath="//div[@class='rbcomp__item-list__item__details__lead']/h3/a/span",\
-                           url_xpath="//div[@class='rbcomp__item-list__item__details__lead']/h3/a/@href",\
-                           prices_xpath="//div[@class='rbcomp__item-list__item__details__info__main']/p[@class='rbcomp__price']/span/em")
-    save(df)
+    pass
 
 if __name__ == '__main__':
     main()
