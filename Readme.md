@@ -37,10 +37,11 @@ When scraping package is install in your virtualenv, open a terminal and run the
 ```
 Then go on the url which is showed on the terminal (http://127.0.0.1:5000/rakutenscraping/api/v1.0/)
 You will see some information about route available with the api. 
-In particularly, all json data havea field "id". This field allow you to request the api as you want.
+In particularly, all json data have a field "id". This field allow you to request the api as you want.
 
 For example : http://127.0.0.1:5000/rakutenscraping/api/v1.0/software/keyboardmouse
     Response :
+```json
  [
   {
     "description": "You want to by a mouse, this is the right place", 
@@ -48,5 +49,18 @@ For example : http://127.0.0.1:5000/rakutenscraping/api/v1.0/software/keyboardmo
     "url": "http://books.rakuten.co.jp/search/dt?mt=0&o=0&cy=0&h=30&g=004322001&e=0&v=2&spv=2&s=1&sv=30"
   }
  ]
-
+```
 to requesting mouse data : http://127.0.0.1:5000/rakutenscraping/api/v1.0/software/keyboardmouse/mouse
+
+- Data
+
+All data provided by the API is in json format. With request package in python you can load then content
+in a dataframe with the script below
+
+```py
+    import pandas as pd
+    import requests
+
+    data = requests.get('http://127.0.0.1:5000/rakutenscraping/api/v1.0/software/keyboardmouse/mouse')
+    df = pd.read_json(data.json())
+```
