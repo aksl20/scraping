@@ -6,11 +6,11 @@ from os.path import split
 import argparse
 
 # Import from scraping
-import scraping.bdd as bdd
-import scraping.app as app
+
+from scraping import app
 
 if __name__ == '__main__':
     usage = '%(prog)s'
     description = 'Package for scraping data from rakuten.co.jp'
-    app.run()
+    app.main()
     

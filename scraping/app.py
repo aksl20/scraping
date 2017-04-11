@@ -1,9 +1,9 @@
 #-*- coding: utf-8 -*-
 
-import bdd
+from scraping import bdd
 from flask import Flask, request, jsonify
 from flask_restful import Resource, Api, output_json
-from scraping import get_game
+from scraping.lib import get_game
 
 class UnicodeApi(Api):
     def __init__(self, *args, **kwargs):
@@ -14,9 +14,6 @@ class UnicodeApi(Api):
         self.representations = {
             'application/json; charset=utf-8': output_json
         }
-
-app = Flask(__name__)
-api = UnicodeApi(app)
 
 # First selection level
 class GameListAPI(Resource):
@@ -56,18 +53,23 @@ class KeyboardMouseAPI(Resource):
         result = get_game(bdd=bdd.keyboardMouse, data_id=data_id)
         return result
 
-api.add_resource(SoftwareListAPI, '/rakutenscraping/api/v1.0/software')
+def main():
+    app = Flask(__name__)
+    api = UnicodeApi(app)
 
-api.add_resource(KeyboardMouseListAPI, '/rakutenscraping/api/v1.0/software/keyboardmouse')
-api.add_resource(KeyboardMouseAPI, '/rakutenscraping/api/v1.0/software/keyboardmouse/<string:data_id>')
+    api.add_resource(SoftwareListAPI, '/rakutenscraping/api/v1.0/software')
 
-api.add_resource(GameListAPI, '/rakutenscraping/api/v1.0/games')
+    api.add_resource(KeyboardMouseListAPI, '/rakutenscraping/api/v1.0/software/keyboardmouse')
+    api.add_resource(KeyboardMouseAPI, '/rakutenscraping/api/v1.0/software/keyboardmouse/<string:data_id>')
 
-api.add_resource(Nintendo3DSListAPI, '/rakutenscraping/api/v1.0/games/3DS')
-api.add_resource(Nintendo3DSAPI, '/rakutenscraping/api/v1.0/games/3DS/<string:data_id>')
-api.add_resource(Playstation4ListAPI, '/rakutenscraping/api/v1.0/games/PS4')
-api.add_resource(Playstation4API, '/rakutenscraping/api/v1.0/games/PS4/<string:data_id>')
+    api.add_resource(GameListAPI, '/rakutenscraping/api/v1.0/games')
 
+    api.add_resource(Nintendo3DSListAPI, '/rakutenscraping/api/v1.0/games/3DS')
+    api.add_resource(Nintendo3DSAPI, '/rakutenscraping/api/v1.0/games/3DS/<string:data_id>')
+    api.add_resource(Playstation4ListAPI, '/rakutenscraping/api/v1.0/games/PS4')
+    api.add_resource(Playstation4API, '/rakutenscraping/api/v1.0/games/PS4/<string:data_id>')
+
+    app.run()
 
 if __name__ == '__main__':
-    app.run()
+    main()

@@ -2,7 +2,7 @@
 import lxml.html
 import pandas as pd
 import requests
-import bdd
+from scraping import bdd
 
 def get_game(bdd, data_id):
     """
