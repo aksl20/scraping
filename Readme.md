@@ -1,4 +1,9 @@
-# Python Projects ESME Sudria
+# Scraping Rakuten.co.jp project
+
+## Description
+
+This package provide an simple REST API when it is install to scrap some data
+from rakuten.co.jp web pages.
 
 ## Prerequisites
 
@@ -7,6 +12,7 @@ You will need the following things properly installed on your computer.
 * [Git](http://git-scm.com/)
 
 ## Install
+
 On you gnome-ubuntu 16.10 install Python and its libraries::
 
 ```sh
@@ -20,4 +26,6 @@ On you gnome-ubuntu 16.10 install Python and its libraries::
   $ pip install -r requirements.txt
   $ pip install . -U
 ```
+## How to use it ?
+
 
