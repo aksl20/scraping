@@ -59,7 +59,7 @@ pccomponent = [
         'id': 'cable',
         'description': 'You want to by a cable, this is the right place',
         'url': 'http://books.rakuten.co.jp/search/dt?mt=0&o=0&cy=0&h=30&g=004317007&e=0&v=2&spv=2&s=1&sv=30'
-    },
+    }
         'id': 'other',
         'description': 'Other product in relation with pc and component',
         'url': 'http://books.rakuten.co.jp/search/dt?mt=0&o=0&cy=0&h=30&g=004317012&e=0&v=2&spv=2&s=1&sv=30'
