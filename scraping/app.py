@@ -37,6 +37,10 @@ class KeyboardMouseListAPI(Resource):
     def get(self):
         return jsonify(bdd.keyboardMouse)
 
+class PCComponentListAPI(Resource):
+    def get(self):
+        return jsonify(bdd.pccomponent)
+
 # Selection the web page to scrap
 class Playstation4API(Resource):
     def get(self, data_id):
@@ -53,6 +57,11 @@ class KeyboardMouseAPI(Resource):
         result = get_game(bdd=bdd.keyboardMouse, data_id=data_id)
         return result
 
+class PCComponentAPI(Resource):
+    def get(self, data_id):
+        result = get_game(bdd=bdd.pccomponent, data_id=data_id)
+        return result
+
 def main():
     app = Flask(__name__)
     api = UnicodeApi(app)
@@ -61,6 +70,8 @@ def main():
 
     api.add_resource(KeyboardMouseListAPI, '/rakutenscraping/api/v1.0/software/keyboardmouse')
     api.add_resource(KeyboardMouseAPI, '/rakutenscraping/api/v1.0/software/keyboardmouse/<string:data_id>')
+    api.add_resource(PCComponentListAPI, '/rakutenscraping/api/v1.0/software/pccomponent')
+    api.add_resource(PCComponentAPI, '/rakutenscraping/api/v1.0/software/pccomponent/<string:data_id>')
 
     api.add_resource(GameListAPI, '/rakutenscraping/api/v1.0/games')
 
@@ -68,7 +79,7 @@ def main():
     api.add_resource(Nintendo3DSAPI, '/rakutenscraping/api/v1.0/games/3DS/<string:data_id>')
     api.add_resource(Playstation4ListAPI, '/rakutenscraping/api/v1.0/games/PS4')
     api.add_resource(Playstation4API, '/rakutenscraping/api/v1.0/games/PS4/<string:data_id>')
-
+    
     app.run()
 
 if __name__ == '__main__':
