@@ -2,7 +2,7 @@
 
 ## Description
 
-This package provide an simple REST API when it is install to scrap some data
+This package provide a simple REST API to scrap some data
 from rakuten.co.jp web pages.
 
 ## Prerequisites

@@ -4,7 +4,7 @@ import pandas as pd
 import requests
 from scraping import bdd
 
-def get_game(bdd, data_id):
+def get_data(bdd, data_id):
     """
     Function to return game product sold on rakuten
     """

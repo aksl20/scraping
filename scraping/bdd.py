@@ -30,6 +30,10 @@ softwares = [
     {
         'id': 'pccomponent',
         'description': 'A lot of component for pc product from rakuten.co.jp'
+    },
+    {
+        'id': 'camera',
+        'description': 'A lot of camera from rakuten.co.jp'
     }
 ]
 
@@ -72,6 +76,30 @@ pccomponent = [
         'description': 'Other product in relation with pc and component',
         'url': 'http://books.rakuten.co.jp/search/dt?mt=0&o=0&cy=0&h=30&g=004317012&e=0&v=2&spv=2&s=1&sv=30'
     }
+]
+
+camera = [
+    {
+        'id': 'digital'
+        'description'; 'You want to by a digital camera, this is the right place',
+        'url': 'http://books.rakuten.co.jp/search/dt?mt=0&o=0&cy=0&h=30&g=004327001&e=0&v=2&spv=2&s=1&sv=30'
+    },
+    {
+        'id': 'digitalvideo'
+        'description'; 'You want to by a digital video camera, this is the right place',
+        'url': 'http://books.rakuten.co.jp/search/dt?mt=0&o=0&cy=0&h=30&g=004327002&e=0&v=2&spv=2&s=1&sv=30'
+    },
+    {
+        'id': 'option'
+        'description'; 'You want to by options for your camera, this is the right place',
+        'url': 'http://books.rakuten.co.jp/search/dt?mt=0&o=0&cy=0&h=30&g=004327003&e=0&v=2&spv=2&s=1&sv=30'
+    },
+    {
+        'id': 'other',
+        'description': 'Other product in relation with camera',
+        'url': 'http://books.rakuten.co.jp/search/dt?mt=0&o=0&cy=0&h=30&g=004327004&e=0&v=2&spv=2&s=1&sv=30'
+    }
+    
 ]
 
 playstation4 = [
