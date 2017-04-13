@@ -13,16 +13,15 @@ You will need the following things properly installed on your computer.
 
 ## Install
 
-On you gnome-ubuntu install Python and its libraries::
+On you gnome-ubuntu install Python and its libraries (works with Python3 and Python2):
 
 ```sh
   $ sudo apt-get install python-dev
   $ sudo apt-get install virtualenv
-  $ virutalenv ~/venv
+  $ virtualenv ~/venv
   $ source ~/venv/bin/activate
   $ git clone <repository-url>
   $ cd scraping
-  $ git tag -a 1.0 -m 1.0
   $ make requirements
   $ make psi
 ```
