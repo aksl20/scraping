@@ -10,16 +10,16 @@ from rakuten.co.jp web pages.
 You will need the following things properly installed on your computer.
 
 * [Git](http://git-scm.com/)
+* [python](https://www.python.org/downloads/)
+* [virtualenv](https://virtualenv.pypa.io/en/stable/installation/)
 
 ## Install
 
-On you gnome-ubuntu install Python and its libraries (works with Python3 and Python2):
+On your Linux environment with python and virtualenv already installed (works with Python3 and Python2):
 
 ```sh
-  $ sudo apt-get install python-dev
-  $ sudo apt-get install virtualenv
-  $ virtualenv ~/venv
-  $ source ~/venv/bin/activate
+  $ virtualenv venv
+  $ source venv/bin/activate
   $ git clone <repository-url>
   $ cd scraping
   $ make requirements
