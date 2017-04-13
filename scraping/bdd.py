@@ -80,17 +80,17 @@ pccomponent = [
 
 camera = [
     {
-        'id': 'digital'
+        'id': 'digital',
         'description': 'You want to by a digital camera, this is the right place',
         'url': 'http://books.rakuten.co.jp/search/dt?mt=0&o=0&cy=0&h=30&g=004327001&e=0&v=2&spv=2&s=1&sv=30'
     },
     {
-        'id': 'digitalvideo'
+        'id': 'digitalvideo',
         'description': 'You want to by a digital video camera, this is the right place',
         'url': 'http://books.rakuten.co.jp/search/dt?mt=0&o=0&cy=0&h=30&g=004327002&e=0&v=2&spv=2&s=1&sv=30'
     },
     {
-        'id': 'option'
+        'id': 'option',
         'description': 'You want to by options for your camera, this is the right place',
         'url': 'http://books.rakuten.co.jp/search/dt?mt=0&o=0&cy=0&h=30&g=004327003&e=0&v=2&spv=2&s=1&sv=30'
     },
