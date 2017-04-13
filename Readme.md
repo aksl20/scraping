@@ -23,8 +23,8 @@ On you gnome-ubuntu install Python and its libraries::
   $ git clone <repository-url>
   $ cd scraping
   $ git tag -a 1.0 -m 1.0
-  $ pip install -r requirements.txt
-  $ pip install . -U
+  $ make requirements
+  $ make psi
 ```
 ## How to use it ?
 
@@ -35,7 +35,7 @@ When scraping package is install in your virtualenv, open a terminal and run the
 ```sh
   $ scraping-run
 ```
-Then go on the url which is showed on the terminal (http://127.0.0.1:5000/rakutenscraping/api/v1.0/)
+Then go on the url showed on your terminal (http://127.0.0.1:5000)
 You will see some information about route available with the api. 
 In particularly, all json data have a field "id". This field allow you to request the api as you want.
 
@@ -54,7 +54,7 @@ to requesting mouse data : http://127.0.0.1:5000/rakutenscraping/api/v1.0/softwa
 
 - Data
 
-All data provided by the API is in json format. With request package in python you can load then content
+All data provided by the API is in json format. With request package in python you can load the content
 in a dataframe with the script below
 
 ```py

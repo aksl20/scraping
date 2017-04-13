@@ -7,6 +7,9 @@ clean:
 	@rm -fr */__pycache__
 	@rm -fr __pycache__
 
+requirements:
+	@pip install -r requirements.txt
+
 psi:
 	@pip install . -U
 
