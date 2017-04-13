@@ -17,7 +17,7 @@ class UnicodeApi(Api):
 
 class ListAPI(Resource):
     def get(selt):
-        return jsonify(bdd.listApi)
+        return jsonify(bdd.listAPI)
 
 # First selection level
 class GameListAPI(Resource):
