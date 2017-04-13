@@ -1,14 +1,23 @@
 #-*- coding: utf-8 -*-
 
+listAPI = [
+    {
+        'id': 'games',
+        'description': 'This is game category from rakuten.co.jp'
+    },
+    {
+        'id': 'software',
+        'description': 'This is software and PC category from rakuten.co.jp'
+    }
+]
+
 games = [
     {
         'id': '3DS',
-        'title': 'Nintendo 3DS',
         'description': 'A lot of product in relation with Nitendo 3DS from rakuten.co.jp'
     },
     {
         'id': 'PS4',
-        'title': 'Playstation 4',
         'description': 'A lot of product in relation with Playstation 4 from rakuten.co.jp'
     }
 ]
@@ -16,12 +25,10 @@ games = [
 softwares = [
     {
         'id': 'keyboardMouse',
-        'title': 'Keyboard and mouse',
         'description': 'A lot of keybord and mouse from rakuten.co.jp'
     },
     {
         'id': 'pccomponent',
-        'title': 'Component for PC',
         'description': 'A lot of component for pc product from rakuten.co.jp'
     }
 ]

@@ -1,7 +1,7 @@
 #-*- coding: utf-8 -*-
 
 from scraping import bdd
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, redirect
 from flask_restful import Resource, Api, output_json
 from scraping.lib import get_game
 
@@ -14,6 +14,10 @@ class UnicodeApi(Api):
         self.representations = {
             'application/json; charset=utf-8': output_json
         }
+
+class ListAPI(Resource):
+    def get(selt):
+        return jsonify(bdd.listApi)
 
 # First selection level
 class GameListAPI(Resource):
@@ -65,6 +69,12 @@ class PCComponentAPI(Resource):
 def main():
     app = Flask(__name__)
     api = UnicodeApi(app)
+    
+    @app.route('/')
+    def redirectIndex():
+        return redirect('/rakutenscraping/api/v1.0/', code=302) 
+
+    api.add_resource(ListAPI, '/rakutenscraping/api/v1.0/')            
 
     api.add_resource(SoftwareListAPI, '/rakutenscraping/api/v1.0/software')
 
